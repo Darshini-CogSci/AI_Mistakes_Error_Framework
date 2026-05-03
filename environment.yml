@@ -1,0 +1,55 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# environment.yml
+# Shape bias analysis pipeline
+# Covers: ResNet50 inference, embedding collection (avgpool), confusion matrix,
+#         nearest neighbour analysis, t-SNE, silhouette/variance analysis
+#
+# Create environment:
+#   conda env create -f environment.yml
+#
+# Activate:
+#   conda activate shape-bias
+#
+# Notes:
+#   - PyTorch is installed via the pytorch conda channel (CPU build).
+#   - For GPU, replace the pytorch/torchvision lines with the appropriate
+#     cudatoolkit version from https://pytorch.org/get-started/locally/
+#     e.g. pytorch==2.5.1 torchvision==0.20.1 pytorch-cuda=12.1 -c pytorch -c nvidia
+# ══════════════════════════════════════════════════════════════════════════════
+
+name: shape-bias
+
+channels:
+  - pytorch          # official PyTorch channel — keeps torch/torchvision in sync
+  - conda-forge      # broader, up-to-date package index
+  - defaults
+
+dependencies:
+  # ── Python ──────────────────────────────────────────────────────────────────
+  - python=3.10
+
+  # ── Deep learning (ResNet50 inference + avgpool embedding extraction) ───────
+  - pytorch::pytorch=2.5.1
+  - pytorch::torchvision=0.20.1
+  - cpuonly                        # remove this line and add cudatoolkit for GPU
+
+  # ── Core scientific stack ────────────────────────────────────────────────────
+  - numpy=1.26.4
+  - scipy=1.13.1
+  - pandas=2.2.3
+  - scikit-learn=1.5.2             # silhouette analysis, t-SNE, confusion_matrix
+
+  # ── Visualisation ────────────────────────────────────────────────────────────
+  - matplotlib=3.9.2
+  - seaborn=0.13.2                 # confusion matrix heatmaps
+
+  # ── Image I/O (loading stimuli for ResNet50 inference) ───────────────────────
+  - pillow=10.4.0
+
+  # ── Utilities ─────────────────────────────────────────────────────────────────
+  - tqdm=4.66.6                    # progress bars during inference / embedding loops
+
+  # ── Standard library extras (installed via pip for version consistency) ───────
+  - pip
+  - pip:
+      - tqdm==4.66.6               # ensures same version if conda resolves differently

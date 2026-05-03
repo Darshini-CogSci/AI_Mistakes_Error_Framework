@@ -1,0 +1,32 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# requirements.txt
+# Shape bias analysis pipeline
+# Covers: ResNet50 inference, embedding collection (avgpool), confusion matrix,
+#         nearest neighbour analysis, t-SNE, silhouette/variance analysis
+#
+# Install with:
+#   pip install -r requirements.txt
+#
+# For GPU support, install PyTorch separately FIRST from https://pytorch.org/get-started/locally/
+# before running pip install -r requirements.txt (comment out torch/torchvision below).
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Deep learning (ResNet50 inference + embedding extraction) ─────────────────
+torch==2.5.1
+torchvision==0.20.1
+
+# ── Core scientific stack ──────────────────────────────────────────────────────
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.3
+scikit-learn==1.5.2       # silhouette_score, silhouette_samples, t-SNE, confusion_matrix
+
+# ── Visualisation ──────────────────────────────────────────────────────────────
+matplotlib==3.9.2
+seaborn==0.13.2           # confusion matrix heatmaps
+
+# ── Image I/O (loading stimuli for ResNet50 inference) ────────────────────────
+Pillow==10.4.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm==4.66.6              # progress bars during inference / embedding collection
