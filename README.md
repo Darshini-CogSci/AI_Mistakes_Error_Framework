@@ -6,7 +6,7 @@ Store the model weights of Resnet50 in your local device.
 
 ## Code structure
 1. Use the code in stimuli folder to generate novel stimuli
-2. Use resnet50_response_trial_data to collect model inference and top broad response label for analysis.
+2. Use resnet50_response_trial_data to collect model inference and top broad response label for analysis or use the data collected in trial_data folder.
 3. Use extract_embeddings to collect the embeddings of each image in a condition from selective layers of the model.
 4. Use cos_sim_distinctiveness to verify the distinctiveness of the global shape of a category.
 5. Use nna_ambiguity to visualize model confusion in identifying all image sof a category.
