@@ -11,6 +11,7 @@ Store the model weights of Resnet50 in your local device.
 4. Use cos_sim_distinctiveness to verify the distinctiveness of the global shape of a category.
 5. Use nna_ambiguity to visualize model confusion in identifying all image sof a category.
 6. Use the files in tsne of different layers folder to visualize the clustering of embeddings condition-wise for the model.
+7. 
 For human data and other manipulations done by the authors, please visit the works in the reference section.
 ## Installation & Usage
 1. Clone the repository:
