@@ -5,11 +5,12 @@ An attempt to look closely at errors made by CNN Resnet50 to analyse its severit
 Store the model weights of Resnet50 in your local device.
 
 ## Code structure
-1. Use resnet50_response_trial_data to collect model inference and top broad response label for analysis.
-2. Use extract_embeddings to collect the embeddings of each image in a condition from selective layers of the model.
-3. Use cos_sim_distinctiveness to verify the distinctiveness of the global shape of a category.
-4. Use nna_ambiguity to visualize model confusion in identifying all image sof a category.
-5. Use the files in tsne of different layers folder to visualize the clustering of embeddings condition-wise for the model.
+1. Use the code in stimuli folder to generate novel stimuli
+2. Use resnet50_response_trial_data to collect model inference and top broad response label for analysis.
+3. Use extract_embeddings to collect the embeddings of each image in a condition from selective layers of the model.
+4. Use cos_sim_distinctiveness to verify the distinctiveness of the global shape of a category.
+5. Use nna_ambiguity to visualize model confusion in identifying all image sof a category.
+6. Use the files in tsne of different layers folder to visualize the clustering of embeddings condition-wise for the model.
 
 ## Installation & Usage
 1. Clone the repository:
